@@ -5,17 +5,14 @@ import { Component, input, OnInit, output } from '@angular/core';
   templateUrl: './search-input.component.html',
   styleUrls: ['./search-input.component.css']
 })
-export class SearchInputComponent implements OnInit {
+export class SearchInputComponent {
 
   placeholder =input('buscar');
-  enviarValor= output<string>()
+   value=output<string>();
+
   constructor() { }
 
-  ngOnInit() {
+  enviarValor(valor :string){
+      this.value.emit(valor)
   }
-
-    onSearch(valor:string){
-        this.enviarValor.emit(valor)
-    }
-
 }

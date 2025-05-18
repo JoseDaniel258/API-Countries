@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, input, signal } from '@angu
 import { SearchInputComponent } from "../../components/search-input/search-input.component";
 import { CountryListComponent } from "../../components/country-list/country-list.component";
 import { CountryService } from '../../services/country.service';
+import { Country } from '../../interfaces/Country';
 
 @Component({
   selector: 'by-capital-page',
@@ -11,11 +12,14 @@ import { CountryService } from '../../services/country.service';
 })
 export default class ByCapitalPageComponent {
 
-  countriService = inject(CountryService)
-  dato = signal<string>('')
+  isLoading =signal<boolean>(false)
+  isError = signal<string |null >(null)
+  countries =signal<Country[]>([])
 
+
+service =inject(CountryService)
   obtnerValor(valor: string) {
-     this.dato.set(valor)
-    console.log(this.dato)
+    return this.service.serchByCapital(valor).subscribe(res=>{})
   }
+
 }

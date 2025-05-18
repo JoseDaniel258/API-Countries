@@ -1,6 +1,6 @@
 <section   class="fex fex-row gap-2 mt-2">
 
-  <input type="text" class="input input-bordered mr-2 w-56 h-8" [placeholder]="placeholder()"   autofocus #txt
-    (keyup.enter)="onSearch(txt.value)">
-  <button class=" btn btn-primary  "   (click)="onSearch(txt.value)">buscar...</button>
+  <input type="text" class="input input-bordered mr-2 w-56 h-8" [placeholder]="placeholder()" (keyup.enter)="enviarValor(txt.value)"  autofocus #txt
+   >
+  <button class=" btn btn-primary  " (click)="enviarValor(txt.value)" >buscar...</button>
 </section>
