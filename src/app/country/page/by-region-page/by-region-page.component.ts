@@ -6,7 +6,7 @@ import { CountryListComponent } from "../../components/country-list/country-list
   selector: 'app-by-region-page',
   templateUrl: './by-region-page.component.html',
   styleUrls: ['./by-region-page.component.css'],
-  imports: [SearchInputComponent, CountryListComponent]
+  imports: [SearchInputComponent]
 })
 export class ByRegionPageComponent implements OnInit {
 

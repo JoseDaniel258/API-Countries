@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import {  RestCountry } from '../interfaces/Country';
 
 const API_URL = 'https://restcountries.com/v3.1';
 
@@ -16,7 +17,7 @@ constructor() { }
 
 serchByCapital(valor:string){
   valor = valor.toLowerCase();
- return this.http.get(`${API_URL}/capital/${valor}`)
+ return this.http.get<RestCountry[]>(`${API_URL}/capital/${valor}`)
 }
 
 }

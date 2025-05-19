@@ -9,18 +9,26 @@
         <th>nombre</th>
         <th>capital</th>
         <th>Poblacion</th>
-        <th>capital</th>
         <th></th>
       </tr>
     </thead>
 
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>...</td>
-        <td>Jose Daniel</td>
-        <td>Andres Ibanes</td>
-      </tr>
+      @for (country of countries(); track country.cca2 ;let index = $index) {
+        <tr>
+          <td>{{index +1}}</td>
+          <td>{{country.flag}}</td>
+          <td>
+            <img [src]="country.flags.svg" [alt]="country.name.common" class="w-10" >
+          </td>
+          <td>{{country.name.common}}</td>
+          <td>{{country.capital}}</td>
+          <td>{{country.population}}</td>
+          <td>
+            <a class="link-primary">Mas informacion </a>
+          </td>
+        </tr>
+      }
     </tbody>
   </table>
 </section>
