@@ -1,2 +1,10 @@
-<search-input placeholder=" buscar por capital" (value)="obtnerValor($event)"  ></search-input>
-<country-list  [countries]="countries()"  ></country-list>
+<search-input placeholder=" buscar por capital"
+(value)="query.set($event)" >
+</search-input>
+
+@if(countryResolce.error()){
+<h1>{{countryResolce.error()}}</h1>
+}@if(countryResolce.hasValue() ){
+  <country-list  [countries]="countryResolce.value()!"  />
+}
+

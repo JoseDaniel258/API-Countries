@@ -1,4 +1,4 @@
-import {  RestCountry } from './../interfaces/Country';
+import { RestCountry } from './../interfaces/Country';
 import { CountryIn } from '../interfaces/CountryIn';
 
 export class CountryMapper {
@@ -8,12 +8,12 @@ export class CountryMapper {
       cca2:resCountry.cca2,
       flag:resCountry.flag,
       flagSvg:resCountry.flags.svg,
-      name:resCountry.name.common,
+      name:resCountry.translations['spa']?.common ?? 'no espanish name',
       population:resCountry.population
     }
   }
 
   static mapRestCountryArrayToCountryArray( resCountries:RestCountry[]):CountryIn[]{
-     return resCountries.map( country => this.mapRestCountryToCountry(country))
+     return resCountries.map( country => CountryMapper.mapRestCountryToCountry(country))
   }
 }
